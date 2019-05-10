@@ -11,9 +11,9 @@ for bucket in response['Buckets']:
   try:
     enc = s3.get_bucket_encryption(Bucket=bucket['Name'])
     rules = enc['ServerSideEncryptionConfiguration']['Rules']
-    print('Bucket: %s, Encryption: %s')
+    print "1"
   except ClientError as e:
     if e.response['Error']['Code'] == 'ServerSideEncryptionConfigurationNotFoundError':
-      print('Bucket: %s, no server-side encryption')
+      print "2"
     else:
-      print("Bucket: %s, unexpected error: %s")
+      print "3"
