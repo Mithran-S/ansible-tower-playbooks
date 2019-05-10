@@ -1,0 +1,3 @@
+---
+- name: execute  script
+  script: s3_encrypt.py
