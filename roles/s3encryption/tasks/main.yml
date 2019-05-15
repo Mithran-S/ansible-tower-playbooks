@@ -1,3 +1,6 @@
 ---
 - name: execute  script
-  script: s3_encrypt.py
+  script: s3_encrypt.py {{ exception }}
+  register: command_result
+  changed_when: False
+  failed_when: "'No Server-Side Encryption' in command_result.stdout"
